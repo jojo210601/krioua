@@ -5,84 +5,38 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 36 43% 96%;
-    --foreground: 24 15% 16%;
-  }
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  :root { --background: 36 43% 96%; --foreground: 24 15% 16%; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
   body {
     @apply bg-cream text-inkDark font-sans;
-    background-image:
-      radial-gradient(circle at 15% 10%, rgba(200,116,86,0.10) 0%, transparent 45%),
-      radial-gradient(circle at 85% 20%, rgba(156,175,136,0.10) 0%, transparent 40%),
-      radial-gradient(circle at 70% 90%, rgba(184,161,136,0.12) 0%, transparent 45%);
+    background-image: radial-gradient(circle at 15% 10%, rgba(200,116,86,0.10) 0%, transparent 45%), radial-gradient(circle at 85% 20%, rgba(156,175,136,0.10) 0%, transparent 40%), radial-gradient(circle at 70% 90%, rgba(184,161,136,0.12) 0%, transparent 45%);
     background-attachment: fixed;
+    overflow-x: hidden;
   }
-  ::selection {
-    background: rgba(200,116,86,0.25);
-    color: #2E2622;
-  }
+  ::selection { background: rgba(200,116,86,0.25); color: #2E2622; }
 }
 
 @layer components {
-  .glass {
-    background: linear-gradient(135deg, rgba(255,253,249,0.7) 0%, rgba(255,253,249,0.45) 100%);
-    backdrop-filter: blur(24px) saturate(140%);
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
-    border: 1px solid rgba(255,255,255,0.55);
-    box-shadow: 0 8px 32px 0 rgba(46,38,34,0.06), inset 0 1px 0 0 rgba(255,255,255,0.7);
-  }
-  .glass-strong {
-    background: linear-gradient(135deg, rgba(255,253,249,0.85) 0%, rgba(250,246,240,0.7) 100%);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
-    border: 1px solid rgba(255,255,255,0.6);
-    box-shadow: 0 24px 60px -20px rgba(46,38,34,0.15), inset 0 1px 0 0 rgba(255,255,255,0.75);
-  }
-  .glass-dark {
-    background: linear-gradient(135deg, rgba(46,38,34,0.75) 0%, rgba(46,38,34,0.55) 100%);
-    backdrop-filter: blur(24px) saturate(140%);
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .btn-pill {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-500;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, #C87456 0%, #A85C40 100%);
-    color: #FFFDF9;
-    box-shadow: 0 10px 30px -10px rgba(200,116,86,0.55), inset 0 1px 0 0 rgba(255,255,255,0.25);
-  }
-  .btn-primary:hover {
-    box-shadow: 0 18px 40px -12px rgba(200,116,86,0.7), inset 0 1px 0 0 rgba(255,255,255,0.3);
-    transform: translateY(-1px);
-  }
-  .btn-ghost-glass {
-    background: rgba(255,253,249,0.5);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(46,38,34,0.10);
-    color: #2E2622;
-  }
-  .btn-ghost-glass:hover {
-    background: rgba(255,253,249,0.75);
-    border-color: rgba(46,38,34,0.18);
-  }
-  .display {
-    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
-    letter-spacing: -0.02em;
-    font-weight: 400;
-  }
-  .noise-overlay {
-    position: absolute; inset: 0; pointer-events: none; opacity: 0.035; mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+  .glass { background: linear-gradient(135deg, rgba(255,253,249,0.7) 0%, rgba(255,253,249,0.45) 100%); backdrop-filter: blur(24px) saturate(140%); -webkit-backdrop-filter: blur(24px) saturate(140%); border: 1px solid rgba(255,255,255,0.55); box-shadow: 0 8px 32px 0 rgba(46,38,34,0.06), inset 0 1px 0 0 rgba(255,255,255,0.7); }
+  .glass-strong { background: linear-gradient(135deg, rgba(255,253,249,0.85) 0%, rgba(250,246,240,0.7) 100%); backdrop-filter: blur(30px) saturate(160%); -webkit-backdrop-filter: blur(30px) saturate(160%); border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 24px 60px -20px rgba(46,38,34,0.15), inset 0 1px 0 0 rgba(255,255,255,0.75); }
+  .glass-dark { background: linear-gradient(135deg, rgba(46,38,34,0.75) 0%, rgba(46,38,34,0.55) 100%); backdrop-filter: blur(24px) saturate(140%); -webkit-backdrop-filter: blur(24px) saturate(140%); border: 1px solid rgba(255,255,255,0.1); }
+  .btn-pill { @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-500; }
+  .btn-primary { background: linear-gradient(135deg, #C87456 0%, #A85C40 100%); color: #FFFDF9; box-shadow: 0 10px 30px -10px rgba(200,116,86,0.55), inset 0 1px 0 0 rgba(255,255,255,0.25); }
+  .btn-primary:hover { box-shadow: 0 18px 40px -12px rgba(200,116,86,0.7), inset 0 1px 0 0 rgba(255,255,255,0.3); transform: translateY(-1px); }
+  .btn-ghost-glass { background: rgba(255,253,249,0.5); backdrop-filter: blur(20px); border: 1px solid rgba(46,38,34,0.10); color: #2E2622; }
+  .btn-ghost-glass:hover { background: rgba(255,253,249,0.75); border-color: rgba(46,38,34,0.18); }
+  .display { font-family: 'Instrument Serif', ui-serif, Georgia, serif; letter-spacing: -0.02em; font-weight: 400; }
+  .noise-overlay { position: absolute; inset: 0; pointer-events: none; opacity: 0.035; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .mask-fade-b { mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
+}
+
+@media (max-width: 767px) {
+  .container { width: 100%; max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+  main { max-width: 100%; overflow-x: hidden; }
+  .btn-pill { max-width: 100%; white-space: normal; text-align: center; }
+  video { max-width: 100%; }
 }
