@@ -2,6 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SITE } from '@/lib/site';
 
+const SWISS_PHONE = '+41(0)77 941 77 96';
+const FRENCH_PHONE = '+33(0)6 09';
+const ADDRESS = 'Aliotis_Thérapies & bien-être, Bd Helvétique 30, 1207 Genève';
+
 export default function Footer() {
   return (
     <footer className="relative pt-16 pb-10">
@@ -10,8 +14,7 @@ export default function Footer() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <Image src="/logo-icon.png" alt="Krioua" width={56} height={56}
-                  className="h-14 w-14 object-contain" />
+                <Image src="/logo-icon.png" alt="Krioua" width={56} height={56} className="h-14 w-14 object-contain" />
                 <div className="text-xs text-inkSoft">Maxime Krioua · Magnétiseur à Genève</div>
               </div>
               <p className="text-sm text-inkSoft leading-relaxed max-w-md">
@@ -34,9 +37,9 @@ export default function Footer() {
             <div>
               <div className="text-xs uppercase tracking-[0.2em] text-inkSoft mb-4">Contact</div>
               <ul className="space-y-2 text-sm text-inkDark/80">
-                <li>{SITE.address.street}</li>
-                <li>{SITE.address.postal} {SITE.address.locality}</li>
-                <li><a href={`tel:${SITE.phone}`} className="hover:text-terracotta">{SITE.phone}</a></li>
+                <li className="leading-relaxed">{ADDRESS}</li>
+                <li><a href={`tel:${SWISS_PHONE.replace(/\D/g, '')}`} className="hover:text-terracotta">{SWISS_PHONE}</a> <span className="text-xs text-inkSoft">Numéro Suisse</span></li>
+                <li><a href={`tel:${FRENCH_PHONE.replace(/\D/g, '')}`} className="hover:text-terracotta">{FRENCH_PHONE}</a> <span className="text-xs text-inkSoft">Numéro français</span></li>
                 <li><a href={`mailto:${SITE.email}`} className="hover:text-terracotta">{SITE.email}</a></li>
               </ul>
             </div>
