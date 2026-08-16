@@ -1,5 +1,5 @@
 'use client';
-import { Award, Sparkles, Heart, Watch } from 'lucide-react';
+import { Sparkles, Heart, Watch } from 'lucide-react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Reveal, SectionHeader } from '@/components/site/motion-primitives';
@@ -7,9 +7,8 @@ import { Reveal, SectionHeader } from '@/components/site/motion-primitives';
 const ABOUT_IMG = 'https://images.unsplash.com/photo-1636142972514-0c75fc584a12?auto=format&fit=crop&w=1200&q=80';
 
 const DIPLOMAS = [
-  { title: 'Certification Européenne en Magnétisme', school: 'Académie Européenne des Thérapies Énergétiques', year: '2021' },
-  { title: 'Praticien en Soins Énergétiques', school: 'Centre Suisse d’Approche Holistique', year: '2023' },
-  { title: 'Approfondissement Transgénérationnel', school: 'Institut Européen du Bien-être', year: '2024' },
+  '/WhatsApp%20Image%202026-07-26%20at%2009.24.24%20%282%29.jpeg',
+  '/WhatsApp%20Image%202026-07-26%20at%2009.24.24%20%283%29.jpeg',
 ];
 
 export default function AboutContent() {
@@ -67,7 +66,7 @@ export default function AboutContent() {
             {[
               { icon: Heart, t: 'Humain avant tout', d: "Chaque personne est unique. J'écoute, j'accueille et j'accompagne sans jugement." },
               { icon: Sparkles, t: 'Douceur & présence', d: "Le magnétisme se transmet dans le calme, la lenteur, la disponibilité." },
-              { icon: Award, t: 'Vocabulaire responsable', d: "Aucune promesse de guérison. Un accompagnement clair, honnête, respectueux." },
+              { icon: Sparkles, t: 'Vocabulaire responsable', d: "Aucune promesse de guérison. Un accompagnement clair, honnête, respectueux." },
             ].map((it, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <div className="glass rounded-[28px] p-8 h-full">
@@ -82,16 +81,13 @@ export default function AboutContent() {
 
         <section className="mb-24">
           <SectionHeader eyebrow="Formations & diplômes" title={<>Un parcours <em className="text-terracotta">continu</em>.</>} />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {DIPLOMAS.map((d, i) => (
-              <Reveal key={i} delay={i * 0.06}>
-                <div className="glass rounded-[26px] p-6 min-h-[280px] flex flex-col justify-between hover:shadow-glassLg transition-all duration-500">
-                  <div>
-                    <div className="h-10 w-10 rounded-2xl bg-terracotta/15 flex items-center justify-center mb-4"><Award className="h-5 w-5 text-terracotta" strokeWidth={1.5} /></div>
-                    <div className="display text-lg text-inkDark leading-tight mb-2">{d.title}</div>
-                    <div className="text-xs text-inkSoft">{d.school}</div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {DIPLOMAS.map((src, i) => (
+              <Reveal key={src} delay={i * 0.08}>
+                <div className="glass rounded-[26px] p-3 overflow-hidden hover:shadow-glassLg transition-shadow duration-300">
+                  <div className="rounded-[20px] overflow-hidden bg-white/50">
+                    <img src={src} alt={`Diplôme ${i + 1}`} className="w-full h-auto block object-contain" loading="lazy" />
                   </div>
-                  <div className="text-xs text-inkSoft mt-4 pt-4 border-t border-inkDark/5">{d.year}</div>
                 </div>
               </Reveal>
             ))}
