@@ -2,26 +2,26 @@
 import { motion } from 'framer-motion';
 
 export const fadeUp = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 12 },
   visible: (i = 0) => ({
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { delay: i * 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.05, duration: 0.35, ease: 'easeOut' },
   }),
 };
 
 export const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.05 } },
 };
 
 export function Reveal({ children, className, delay = 0, as: Tag = 'div' }) {
   const Comp = motion[Tag] || motion.div;
   return (
     <Comp
-      initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.35, delay, ease: 'easeOut' }}
       className={className}
     >
       {children}
@@ -37,11 +37,11 @@ export function SectionHeader({ eyebrow, title, subtitle, center }) {
           <span className="h-px w-8 bg-taupe/50" /> {eyebrow}
         </div>
       </Reveal>
-      <Reveal delay={0.05}>
+      <Reveal delay={0.03}>
         <h1 className="display text-4xl md:text-5xl lg:text-6xl text-inkDark leading-[1.05] text-balance">{title}</h1>
       </Reveal>
       {subtitle && (
-        <Reveal delay={0.1}>
+        <Reveal delay={0.06}>
           <p className="mt-5 text-inkSoft text-lg leading-relaxed max-w-xl">{subtitle}</p>
         </Reveal>
       )}
