@@ -13,36 +13,36 @@ const PLANS = [
 
 export default function TarifsContent() {
   return (
-    <main className="relative min-h-screen pt-40 pb-24">
+    <main className="relative min-h-screen pt-40 pb-24 overflow-x-hidden">
       <div className="container">
         <SectionHeader center eyebrow="Tarifs" title={<>Un tarif juste, pour un vrai <em className="text-terracotta">changement</em>.</>} subtitle="Choisissez la formule qui vous correspond. Les forfaits offrent une progression durable et des économies significatives." />
 
-        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {PLANS.map((p, i) => (
             <motion.div key={i} variants={fadeUp} whileHover={{ y: -6 }}
-              className={`relative rounded-[32px] p-8 flex flex-col transition-all duration-500 ${p.featured ? 'glass-strong shadow-glassLg lg:scale-[1.04] lg:-translate-y-1' : 'glass hover:shadow-glassLg'}`}>
+              className={`relative min-w-0 w-full rounded-[32px] p-6 sm:p-8 flex flex-col transition-all duration-500 ${p.featured ? 'glass-strong shadow-glassLg lg:scale-[1.04] lg:-translate-y-1' : 'glass hover:shadow-glassLg'}`}>
               {p.badge && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 max-w-[calc(100%-1.5rem)]">
                   <div className="bg-gradient-to-r from-terracotta to-terracottaDark text-white text-[10px] uppercase tracking-[0.18em] px-4 py-1.5 rounded-full shadow-soft whitespace-nowrap">★ {p.badge}</div>
                 </div>
               )}
               <div className="text-[10px] uppercase tracking-[0.2em] text-inkSoft mb-2">{p.sessions}</div>
-              <h3 className="display text-2xl text-inkDark mb-3">{p.name}</h3>
+              <h3 className="display text-2xl text-inkDark mb-3 break-words">{p.name}</h3>
               <p className="text-sm text-inkSoft mb-6 min-h-[40px]">{p.desc}</p>
-              <div className="flex items-end gap-2 mb-1">
-                <div className="display text-5xl text-inkDark">{p.price}</div>
-                <div className="text-inkSoft mb-2 text-sm">CHF</div>
+              <div className="flex items-end gap-2 mb-1 min-w-0">
+                <div className="display text-5xl text-inkDark leading-none">{p.price}</div>
+                <div className="text-inkSoft mb-1 text-sm">CHF</div>
               </div>
               {p.old ? (
-                <div className="flex items-center gap-2 mb-6">
+                <div className="flex flex-wrap items-center gap-2 mb-6 min-w-0">
                   <span className="text-sm text-inkSoft line-through">{p.old} CHF</span>
-                  <span className="text-xs text-sage font-medium bg-sage/15 px-2.5 py-1 rounded-full">Économie {p.save} CHF</span>
+                  <span className="text-xs text-sage font-medium bg-sage/15 px-2.5 py-1 rounded-full break-words">Économie {p.save} CHF</span>
                 </div>
               ) : <div className="mb-6 h-[26px]" />}
-              <ul className="space-y-2.5 mb-8 flex-1">
+              <ul className="space-y-2.5 mb-8 flex-1 min-w-0">
                 {p.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2.5 text-sm text-inkDark/80">
-                    <Check className="h-4 w-4 text-sage mt-0.5 shrink-0" strokeWidth={2.5} /><span>{f}</span>
+                  <li key={j} className="flex items-start gap-2.5 text-sm text-inkDark/80 min-w-0">
+                    <Check className="h-4 w-4 text-sage mt-0.5 shrink-0" strokeWidth={2.5} /><span className="break-words">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -59,7 +59,7 @@ export default function TarifsContent() {
         </Reveal>
 
         <Reveal>
-          <div className="glass-strong rounded-[40px] p-12 text-center">
+          <div className="glass-strong rounded-[40px] p-8 md:p-12 text-center">
             <h2 className="display text-3xl md:text-4xl text-inkDark mb-4">Une question sur les forfaits&nbsp;?</h2>
             <p className="text-inkSoft mb-8 max-w-xl mx-auto">Je réponds personnellement à chaque demande. Prenons le temps d'échanger ensemble.</p>
             <Link href="/contact" className="btn-pill btn-primary">Contacter Maxime <ArrowRight className="h-4 w-4" /></Link>
