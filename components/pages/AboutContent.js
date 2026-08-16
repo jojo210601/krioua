@@ -1,17 +1,14 @@
 'use client';
-import { motion } from 'framer-motion';
 import { Award, Sparkles, Heart, Watch } from 'lucide-react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { fadeUp, stagger, Reveal, SectionHeader } from '@/components/site/motion-primitives';
+import { Reveal, SectionHeader } from '@/components/site/motion-primitives';
 
 const ABOUT_IMG = 'https://images.unsplash.com/photo-1636142972514-0c75fc584a12?auto=format&fit=crop&w=1200&q=80';
 
-/* Faux diplômes placeholders — remplacer par les vrais diplômes du client */
 const DIPLOMAS = [
   { title: 'Certification Européenne en Magnétisme', school: 'Académie Européenne des Thérapies Énergétiques', year: '2021' },
-  { title: 'Formation Reiki Niveau III', school: 'Institut Européen des Soins Vibratoires', year: '2022' },
-  { title: 'Praticien en Soins Énergétiques', school: 'Centre Suisse d\u2019Approche Holistique', year: '2023' },
+  { title: 'Praticien en Soins Énergétiques', school: 'Centre Suisse d’Approche Holistique', year: '2023' },
   { title: 'Approfondissement Transgénérationnel', school: 'Institut Européen du Bien-être', year: '2024' },
 ];
 
@@ -39,7 +36,6 @@ export default function AboutContent() {
           </Reveal>
         </div>
 
-        {/* Mon don */}
         <section className="mb-24">
           <div className="glass-strong rounded-[40px] p-10 md:p-16 relative overflow-hidden">
             <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-terracotta/20 blur-3xl" />
@@ -65,7 +61,6 @@ export default function AboutContent() {
           </div>
         </section>
 
-        {/* Approche */}
         <section className="mb-24">
           <SectionHeader eyebrow="Mon approche" title={<>Une philosophie <em className="text-sage">simple</em>.</>} />
           <div className="grid md:grid-cols-3 gap-5">
@@ -85,13 +80,12 @@ export default function AboutContent() {
           </div>
         </section>
 
-        {/* Diplômes */}
         <section className="mb-24">
-          <SectionHeader eyebrow="Formations & diplômes" title={<>Un parcours <em className="text-terracotta">continu</em>.</>} subtitle="Ces diplômes sont des placeholders et seront remplacés par les certifications réelles du client." />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <SectionHeader eyebrow="Formations & diplômes" title={<>Un parcours <em className="text-terracotta">continu</em>.</>} />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {DIPLOMAS.map((d, i) => (
               <Reveal key={i} delay={i * 0.06}>
-                <div className="glass rounded-[26px] p-6 aspect-[3/4] flex flex-col justify-between hover:shadow-glassLg transition-all duration-500">
+                <div className="glass rounded-[26px] p-6 min-h-[280px] flex flex-col justify-between hover:shadow-glassLg transition-all duration-500">
                   <div>
                     <div className="h-10 w-10 rounded-2xl bg-terracotta/15 flex items-center justify-center mb-4"><Award className="h-5 w-5 text-terracotta" strokeWidth={1.5} /></div>
                     <div className="display text-lg text-inkDark leading-tight mb-2">{d.title}</div>
@@ -104,7 +98,6 @@ export default function AboutContent() {
           </div>
         </section>
 
-        {/* CTA */}
         <Reveal>
           <div className="glass-strong rounded-[40px] p-12 text-center relative overflow-hidden">
             <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-terracotta/25 blur-3xl" />
