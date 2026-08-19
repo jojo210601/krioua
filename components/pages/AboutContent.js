@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Reveal, SectionHeader } from '@/components/site/motion-primitives';
 
-const ABOUT_IMG = 'https://images.unsplash.com/photo-1636142972514-0c75fc584a12?auto=format&fit=crop&w=1200&q=80';
+const ABOUT_IMG = '/dbdNir0t.jpeg';
 
 const DIPLOMAS = [
   '/WhatsApp%20Image%202026-07-26%20at%2009.24.24%20%282%29.jpeg',
@@ -29,7 +29,7 @@ export default function AboutContent() {
           <Reveal delay={0.2} className="lg:col-span-5">
             <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden glass-strong p-2">
               <div className="absolute inset-2 rounded-[30px] overflow-hidden">
-                <img src={ABOUT_IMG} alt="Maxime Krioua, magnétiseur" className="h-full w-full object-cover" />
+                <img src={ABOUT_IMG} alt="Mains pendant une séance de magnétisme" className="h-full w-full object-cover" />
               </div>
             </div>
           </Reveal>
