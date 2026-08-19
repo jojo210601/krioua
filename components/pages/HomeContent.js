@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/components/site/motion-primitives';
 
-const HERO_IMG = 'https://images.unsplash.com/photo-1649217707473-225fba0febd3?auto=format&fit=crop&w=1600&q=80';
+const HERO_IMG = '/nv9MlgqQ.jpeg';
 
 function Hero() {
   const { scrollY } = useScroll();
@@ -47,11 +47,6 @@ function Hero() {
               <Link href="/services" className="btn-pill btn-ghost-glass text-[15px]">Découvrir les soins</Link>
             </motion.div>
             <motion.div variants={fadeUp} className="mt-12 flex items-center gap-6">
-              <div className="flex -space-x-2">
-                {[0,1,2,3].map(i => (
-                  <div key={i} className="h-9 w-9 rounded-full border-2 border-cream bg-gradient-to-br from-sand to-brownLight" />
-                ))}
-              </div>
               <div className="flex items-center gap-1 text-terracotta">
                 {[...Array(5)].map((_,i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
                 <span className="ml-2 text-xs text-inkSoft">4,9 · +120 personnes accompagnées</span>
@@ -291,10 +286,7 @@ function Testimonials() {
                 {[...Array(t.rating)].map((_,k)=> <Star key={k} className="h-3.5 w-3.5 fill-current" />)}
               </div>
               <p className="display text-2xl text-inkDark leading-snug mb-6">« {t.text} »</p>
-              <div className="mt-auto flex items-center gap-3 pt-4 border-t border-inkDark/5">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-sand to-brownLight" />
-                <div><div className="text-sm font-medium text-inkDark">{t.name}</div><div className="text-xs text-inkSoft">{t.city}</div></div>
-              </div>
+              <div className="mt-auto pt-4 border-t border-inkDark/5"><div className="text-sm font-medium text-inkDark">{t.name}</div><div className="text-xs text-inkSoft">{t.city}</div></div>
             </motion.div>
           ))}
         </motion.div>
