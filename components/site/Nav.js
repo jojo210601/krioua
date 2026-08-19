@@ -17,14 +17,14 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 py-5">
       <div className="container">
         <div className="glass rounded-full pl-3 pr-4 sm:pr-6 py-2.5 flex items-center justify-between">
-          <Link href="/" aria-label={SITE.name} className="flex items-center -my-4">
+          <Link href="/" aria-label={SITE.name} className="flex items-center -my-7">
             <Image
-              src="/he2FYADk.jpeg"
+              src="/Unknown.png"
               alt="Krioua"
-              width={140}
-              height={140}
+              width={180}
+              height={180}
               priority
-              className="h-24 w-24 sm:h-28 sm:w-28 object-contain rounded-full"
+              className="h-32 w-32 sm:h-36 sm:w-36 object-contain"
             />
           </Link>
 
