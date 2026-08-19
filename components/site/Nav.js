@@ -17,7 +17,7 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 py-5">
       <div className="container">
         <div className="glass rounded-full pl-3 pr-4 sm:pr-6 py-2.5 flex items-center justify-between">
-          <Link href="/" aria-label={SITE.name} className="flex items-center -my-7">
+          <Link href="/" aria-label={SITE.name} className="flex items-center -my-7 ml-4 sm:ml-6">
             <Image
               src="/Unknown.png"
               alt="Krioua"
