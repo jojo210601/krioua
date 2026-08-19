@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -8,26 +8,24 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { NAV_LINKS, SITE } from '@/lib/site';
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? 'py-3' : 'py-5'}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 py-5">
       <div className="container">
-        <div className={`glass ${scrolled ? 'shadow-glass' : ''} rounded-full pl-3 pr-4 sm:pr-6 py-2.5 flex items-center justify-between`}>
-          <Link href="/" aria-label={SITE.name} className="flex items-center -my-3">
-            <Image src="/logo-icon.png" alt="Krioua" width={120} height={120} priority
-              className="h-20 w-20 sm:h-24 sm:w-24 object-contain" />
+        <div className="glass rounded-full pl-3 pr-4 sm:pr-6 py-2.5 flex items-center justify-between">
+          <Link href="/" aria-label={SITE.name} className="flex items-center -my-4">
+            <Image
+              src="/he2FYADk.jpeg"
+              alt="Krioua"
+              width={140}
+              height={140}
+              priority
+              className="h-24 w-24 sm:h-28 sm:w-28 object-contain rounded-full"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
