@@ -16,8 +16,8 @@ const TESTIMONIALS = [
 ];
 
 const VIDEO_TESTIMONIALS = [
-  { src: '/VIDEO-2026-08-10-00-45-41.mp4', label: 'Témoignage vidéo' },
-  { src: '/VIDEO-2026-08-10-00-48-20.mp4', label: 'Témoignage vidéo' },
+  { src: '/video%201.mp4', label: 'Témoignage vidéo' },
+  { src: '/video%202_1.mp4', label: 'Témoignage vidéo' },
 ];
 
 function VideoWithCover({ src, label }) {
