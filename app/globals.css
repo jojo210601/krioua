@@ -34,6 +34,9 @@
   .mask-fade-b { mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
 }
 
+/* The hero photo must remain fully visible while scrolling on every device. */
+#hero > .container > .grid > div:nth-child(2) { opacity: 1 !important; }
+
 @media (max-width: 767px) {
   .container { width: 100%; max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
   main { max-width: 100%; overflow-x: hidden; }
